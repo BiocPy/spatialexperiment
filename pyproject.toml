@@ -35,14 +35,13 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "biocframe>=0.7.2",
+    "biocframe>=0.7.2"
     "biocutils>=0.3.3",
-    "importlib-metadata>=9.0.0 ; python_full_version < '3.8'",
-    "pillow>=11.0",
-    "rasterio>=1.5.1",
-    "requests>=2.34.2",
-    "scipy~=1.13",
     "singlecellexperiment>=0.6.0",
+    "pillow>=11.0",
+    "requests",
+    "scipy~=1.13",
+    "rasterio",
 ]
 
 
@@ -58,17 +57,16 @@ Source = "https://github.com/BiocPy/spatialexperiment"
 
 [project.optional-dependencies]
 optional = [
-    "anndata>=0.13.2",
-    "delayedarray>=0.6.2",
-    "pandas>=3.0.5",
+    "anndata",
+    "delayedarray",
+    "pandas",
 ]
 testing = [
-    "anndata>=0.13.2",
-    "delayedarray>=0.6.2",
-    "pandas>=3.0.5",
-    "pytest>=9.1.1",
-    "pytest-cov>=7.1.0",
-    "setuptools>=84.0.0",
+    "anndata",
+    "delayedarray",
+    "pandas",
+    "pytest",
+    "pytest-cov",
 ]
 
 [build-system]
