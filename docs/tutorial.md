@@ -5,7 +5,7 @@ python_version: 3.14
 
 # Represent Spatially Resolved transcriptomics data
 
-The `spatialexperiment` package provides the `SpatialExperiment` (SPE) container class, extending `SingleCellExperiment` (SCE) to support spatially resolved transcriptomics (SRT) and spatial-omics datasets. 
+The `spatialexperiment` package provides the `SpatialExperiment` (SPE) container class, extending `SingleCellExperiment` (SCE) to support spatially resolved transcriptomics (SRT) and spatial-omics datasets.
 
 It adds dedicated slots for:
 1. **Spatial Coordinates**: Location of spots or cells in the spatial grid/coordinate space.
