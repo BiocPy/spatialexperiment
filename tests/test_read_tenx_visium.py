@@ -54,7 +54,7 @@ def test_read_tenx_visium(samples, sample_ids):
     assert np.array_equal(
         pd.crosstab(spe.column_data["sample_id"], spe.column_data["in_tissue"]).values,
         pd.crosstab(
-            tissue_positions["sample_id"], tissue_positions["in_tissue"]
+            tissue_positions["sample_id"].values, tissue_positions["in_tissue"].values
         ).values,
     )
 
