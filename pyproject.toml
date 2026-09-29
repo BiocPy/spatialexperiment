@@ -1,25 +1,124 @@
-[build-system]
-# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
-requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5"]
-build-backend = "setuptools.build_meta"
+[project]
+name = "spatialexperiment"
+dynamic = [
+    "version",
+]
+description = "Container class for storing data from spatial-omics experiments"
+readme = "README.md"
+authors = [
+    { name = "Jayaram Kancherla", email = "jayaram.kancherla@gmail.com" },
+]
+requires-python = ">=3.12"
+keywords = [
+    "bioinformatics",
+    "spatial-omics",
+    "spatial-transcriptomics",
+    "single-cell",
+    "bioconductor",
+    "singlecellexperiment",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Typing :: Typed",
+]
+dependencies = [
+    "biocframe>=0.7.2",
+    "biocutils>=0.3.3",
+    "importlib-metadata>=9.0.0 ; python_full_version < '3.8'",
+    "pillow>=11.0",
+    "rasterio>=1.5.1",
+    "requests>=2.34.2",
+    "scipy~=1.13",
+    "singlecellexperiment>=0.6.0",
+]
 
-[tool.setuptools_scm]
-# For smarter version schemes and other configuration options,
-# check out https://github.com/pypa/setuptools_scm
-version_scheme = "no-guess-dev"
+
+[project.license]
+file = "LICENSE.txt"
+
+
+[project.urls]
+Homepage = "https://github.com/BiocPy/spatialexperiment"
+Documentation = "https://biocpy.github.io/spatialexperiment/"
+Source = "https://github.com/BiocPy/spatialexperiment"
+"Bug Tracker" = "https://github.com/BiocPy/spatialexperiment/issues"
+
+[project.optional-dependencies]
+optional = [
+    "anndata>=0.13.2",
+    "delayedarray>=0.6.2",
+    "pandas>=3.0.5",
+]
+testing = [
+    "anndata>=0.13.2",
+    "delayedarray>=0.6.2",
+    "pandas>=3.0.5",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "setuptools>=84.0.0",
+]
+
+[build-system]
+requires = [
+    "hatchling",
+    "hatch-vcs",
+]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+fallback-version = "0.1.0"
 
 [tool.ruff]
 line-length = 120
-src = ["src"]
-exclude = ["tests"]
-lint.extend-ignore = ["F821"]
+src = [
+    "src",
+]
+exclude = [
+    "tests",
+    "docs",
+]
+
+[tool.ruff.lint]
+extend-ignore = [
+    "F821",
+]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    "E402",
+    "F401",
+]
 
 [tool.ruff.format]
 docstring-code-format = true
 docstring-code-line-length = 20
 
-[tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["E402", "F401"]
+[tool.mypy]
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report term-missing"
+testpaths = [
+    "tests",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B110"]
